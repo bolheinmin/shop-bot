@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="shopplus">
+    <title>Shopplus</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!-- iconfont CSS -->
+    <link rel="stylesheet" type="text/css" href="/icon/icofont/icofont.min.css">
+    <!-- fontawesome -->
+    <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header">
+        <a class="app-header__logo" href="index.html">
+            Shopules
+        </a>
+        <!-- Sidebar toggle button-->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar">
+            <i class="icofont-navigation-menu"></i>
+        </a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                <input class="app-search__input" type="search" placeholder="Search">
+                <button class="app-search__button">
+                    <i class="icofont-search-2"></i>
+                </button>
+            </li>
+            <!-- User Menu-->
+            <li class="dropdown">
+                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
+                    <i class="icofont-user-alt-3"></i>
+                </a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <!-- <li>
+                        <a class="dropdown-item" href="profile.php">
+                            <i class="icofont-ui-user"></i> Profile
+                        </a>
+                    </li> -->
+                    <li>
+                        <a class="dropdown-item" href="signout.php">
+                            <i class="icofont-logout"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar">
+    </div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <img alt="User Image" class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg">
+            <div>
+                <p class="app-sidebar__user-name">
+                    Admin
+                </p>
+                <p class="app-sidebar__user-designation">
+                    admin@gmail.com
+                </p>
+            </div>
+            </img>
+        </div>
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item" href="../../admin/orders">
+                    <i class="app-menu__icon icofont-prestashop"></i>
+                    <span class="app-menu__label">
+                        Orders
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="../../admin/products">
+                    <i class="app-menu__icon icofont-package"></i>
+                    <span class="app-menu__label">
+                        Products
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
