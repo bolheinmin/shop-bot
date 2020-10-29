@@ -66,12 +66,38 @@
 <body class="app sidebar-mini">
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="index.html">
-            Shopplus
-        </a>
+        <a class="app-header__logo" href="index.html">Shopplus</a>
         <!-- Sidebar toggle button-->
-        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#">
-        </a>
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                <input class="app-search__input" type="search" placeholder="Search">
+                <button class="app-search__button">
+                    <i class="icofont-search-2"></i>
+                </button>
+            </li>
+            <!-- User Menu-->
+            <li class="dropdown">
+                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
+                    <i class="icofont-user-alt-3"></i>
+                </a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <!-- <li>
+                        <a class="dropdown-item" href="profile.php">
+                            <i class="icofont-ui-user"></i> Profile
+                        </a>
+                    </li> -->
+                    <li>
+                        <a class="dropdown-item" href="signout.php">
+                            <i class="icofont-logout"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar">
