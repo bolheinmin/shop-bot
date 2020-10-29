@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@
      </tr>
   <% }); %>
 
-	</table>
+  </table>
   
 
   
@@ -46,5 +46,186 @@
   
   
   </body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="shopplus">
+    <title>Shopplus</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!-- iconfont CSS -->
+    <link rel="stylesheet" type="text/css" href="/icon/icofont/icofont.min.css">
+    <!-- fontawesome -->
+    <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header">
+        <a class="app-header__logo" href="index.html">
+            Shopules
+        </a>
+        <!-- Sidebar toggle button-->
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar">
+            <i class="icofont-navigation-menu"></i>
+        </a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                <input class="app-search__input" type="search" placeholder="Search">
+                <button class="app-search__button">
+                    <i class="icofont-search-2"></i>
+                </button>
+            </li>
+            <!-- User Menu-->
+            <li class="dropdown">
+                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
+                    <i class="icofont-user-alt-3"></i>
+                </a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <!-- <li>
+                        <a class="dropdown-item" href="profile.php">
+                            <i class="icofont-ui-user"></i> Profile
+                        </a>
+                    </li> -->
+                    <li>
+                        <a class="dropdown-item" href="signout.php">
+                            <i class="icofont-logout"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar">
+    </div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <img alt="User Image" class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg">
+            <div>
+                <p class="app-sidebar__user-name">
+                    Admin
+                </p>
+                <p class="app-sidebar__user-designation">
+                    admin@gmail.com
+                </p>
+            </div>
+            </img>
+        </div>
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item" href="">
+                    <i class="app-menu__icon icofont-prestashop"></i>
+                    <span class="app-menu__label">
+                        Order
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="{{route('brand.index')}}">
+                    <i class="app-menu__icon icofont-package"></i>
+                    <span class="app-menu__label">
+                        Product
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1> <i class="icofont-list"></i> Products </h1>
+            </div>
+            <ul class="app-breadcrumb breadcrumb side">
+                <a href="../../admin/addproduct" class="btn btn-outline-primary">
+                    <i class="icofont-plus"></i>
+                </a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered" id="sampleTable">
+                                <thead>
+                                    <tr>
+                                        <th> No </th>
+                                        <th> Name </th>
+                                        <th> SKU </th>
+                                        <th> Description </th>
+                                        <th> Price </th>
+                                        <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <% var i = 1; %>
+                                  <% data.forEach(function(product){ %>
+                                    <tr>
+                                        <td>
+                                           <%= i++ %>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex no-block align-items-center">
+                                                <div class="mr-3">
+                                                    <img src="<%= product.image %>" alt="user" class="rounded-circle" width="50" height="45" />
+                                                </div>
+                                                <div class="">
+                                                    <h5 class="text-dark mb-0 font-16 font-weight-medium">
+                                                       <%= product.name %>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <%= product.sku %>
+                                        </td>
+                                        <td>
+                                           <%= product.description %>
+                                        </td>
+                                        <td>
+                                          <%= product.price %>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-warning">
+                                                <i class="icofont-ui-settings"></i>
+                                            </a>
+                                            <form class="d-inline-block" onsubmit="return confirm('Are you sure want to delete?')" method="POST" action="">
+                                                <input type="hidden" name="id" value="">
+                                                <button class="btn btn-outline-danger">
+                                                    <i class="icofont-close"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="/js/jquery-3.3.1.min.js">
+    </script>
+    <script src="/js/popper.min.js">
+    </script>
+    <script src="/js/bootstrap.min.js">
+    </script>
+    <script src="/js/main.js">
+    </script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="/js/plugins/pace.min.js"></script>
+</body>
 
 </html>
