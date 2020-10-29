@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+</head>
+<body>
+	<script>
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+    const APP_ID = 1437772286611018;    
+    var senderID = "";
+    
+    window.extAsyncInit = function() {
+        MessengerExtensions.getContext(APP_ID, 
+          function success(thread_context){
+           senderID = thread_context.psid;
+          },
+          function error(err){
+            console.log(err);
+          }
+        );        
+    };
+  </script>
+
+	<h1>Order</h1>
+	<p><a href="../cart">Cart</a></p>
+
+	<h3>Items</h3>
+	<table cellspacing="1" cellpadding="5" border="1">
+		<% cart.forEach(function(item){ %>
+		<tr>
+			<td>
+				<%= item.name %> * <%= item.qty %>
+			</td>
+		</tr>
+		<% }); %>
+	</table>
+	
+		
+	
+	
+	
+	<p><strong>Sub Total:</strong> <%= sub_total %><p>
+	<p><strong>Discount:</strong> - <%= discount %><p>
+	<p><strong>Total:</strong> <%= cart_total %><p>
+
+	<form id="form" action="../order" method="post">	
+	    <input type="text" name="name" value="<%= user.name %>" required/>	<br/>
+		<input type="text" name="phone" value="<%= user.phone %>" required/>	<br/>
+		<textarea  name="address" rows="4" cols="50" required><%= user.address %></textarea><br/>
+
+		<input  type="hidden" name="items" value="<%= items %>">
+		
+	
+
+		<input type="hidden" name="sub_total" value="<%= sub_total %>" />
+		<input type="hidden" name="discount" value="<%= discount %>" />
+		<input type="hidden" name="total" value="<%= cart_total %>" />
+
+
+
+		<input type="radio" name="payment_type" value="cod" required/> Cash on Delivery <br/>
+		
+		<input type="submit" name="submit" value="Order"/>
+	</form>
+	
+
+	<script>
+      
+   
+      const windowShut = () => {
+
+      	setTimeout(()=>{
+
+      		MessengerExtensions.requestCloseBrowser(function success() {
+          	console.log("success");          
+        	}, function error(err) {
+          		console.log(err);
+        	});
+
+
+    	},2000);
+   
+        
+        }
+      
+      document.getElementById("form").addEventListener("submit", windowShut);      
+     
+
+  </script>
+	
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Edit Appointment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <script>
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+    const APP_ID = 544769076153407;    
+    var senderID = "";
+    
+    window.extAsyncInit = function() {
+        MessengerExtensions.getContext(APP_ID, 
+          function success(thread_context){
+           senderID = thread_context.psid;
+          },
+          function error(err){
+            console.log(err);
+          }
+        );        
+    };
+  </script>
+  
+ 
+
+  <form id="form" method="post" action="../updateappointment">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" value="<%= data.name %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Phone</label>
+    <input type="text" class="form-control" name="phone" value="<%= data.phone %>">    
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" value="<%= data.email %>">
+  </div>
+  <div class="form-group">
+    Gender: 
+    <input type="radio" id="male" name="gender" value="M" 
+    <%if(data.gender == "M"){%>
+        <%="checked"%>
+    <%}%>
+    >
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="F"
+    <%if(data.gender == "F"){%>
+        <%="checked"%>
+    <%}%>
+    >
+    <label for="female">Female</label><br>  
+  </div>
+  <div class="form-group">
+    <label for="name">Doctor</label>
+    <input type="text" class="form-control" name="doctor" value="<%= data.doctor %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Department</label>
+    <input type="text" class="form-control" id="department" name="department" value="<%= data.department %>">    
+  </div>
+  <div class="form-group">
+    Visit: 
+    <input type="radio" name="visit" value="first time" 
+    <%if(data.visit == 'first time' ){%>
+        <%="checked"%>
+    <%}%>
+    >
+    <label for="male">First Time</label>
+    <input type="radio" name="vist" value="follow up"
+    <%if(data.visit == 'follow up'){%>
+        <%="checked"%>
+    <%}%>
+    >
+    <label for="female">Follow Up</label><br>     
+  </div>
+  <div class="form-group">
+    <label for="name">Date</label>
+    <input type="text" class="form-control" name="date" value="<%= data.date %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Time</label>
+    <input type="text" class="form-control" name="time" value="<%= data.time %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Message</label>
+    <textarea name="message" rows="4" cols="50"><%= data.message %></textarea>
+      
+  </div>
+  <div class="form-group">
+    <label for="status">Status:</label>
+  <select name="status" id="status">    
+    <option value="pending"
+    <%if(data.status == "pending"){%>
+        <%="selected"%>
+    <%}%>
+    >Pending</option>
+    <option value="confirm"
+    <%if(data.status == "confirm"){%>
+        <%="selected"%>
+    <%}%>
+    >Confirm</option>
+   
+  </select>   
+  </div>
+  <div class="form-group">
+    <label for="name">Comment</label>
+    <textarea name="comment" rows="4" cols="50"></textarea>      
+  </div>
+
+  
+  <input type="hidden"  name="doc_id" value="<%= data.doc_id %>">
+  <input type="hidden"  name="ref" value="<%= data.ref %>">
+  <input type="submit" value="Submit"> 
+  </form>
+
+
+  
+  <script>
+      
+   
+      const windowShut = () => {
+   
+          MessengerExtensions.requestCloseBrowser(function success() {
+          console.log("success");          
+        }, function error(err) {
+          console.log(err);
+        });
+        }
+      
+      document.getElementById("form").addEventListener("submit", windowShut);       
+
+      /*
+      const postFormData = (data) => {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://fbstarterbot.herokuapp.com/webview/", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data)); 
+      } */
+
+     
+
+  </script>
+
+  </body>
+
+</html>

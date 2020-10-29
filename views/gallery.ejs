@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ddmo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <script>
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+    const APP_ID = 544769076153407;    
+    var senderID = "";
+    
+    window.extAsyncInit = function() {
+        MessengerExtensions.getContext(APP_ID, 
+          function success(thread_context){
+           senderID = thread_context.psid;
+          },
+          function error(err){
+            console.log(err);
+          }
+        );        
+    };
+  </script>
+  
+	<table>
+	<% for(var i=0; i < data.length; i++) { %>
+	   <tr>
+	     <td><img src="<%= data[i].url %>"><br><button class="pick" data-id="<%= data[i].id %>">I like this</button></td>	     
+	   </tr>
+	<% } %>
+	</table>
+
+  <script>
+
+    function  windowClose() {
+        MessengerExtensions.requestCloseBrowser(function success() {
+          console.log("success");   
+          send();       
+        }, function error(err) {
+          console.log(err);
+        });
+      }
+
+
+
+    function myFunction () {
+
+    const doc_id = this.getAttribute('data-id')
+
+    let xhr;
+      if (window.XMLHttpRequest) {   
+      xhr = new XMLHttpRequest();
+    } else {      
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    const data = {
+      "sender_id":senderID,
+      "doc_id": doc_id
+    }
+
+    const url = "https://fbstarter.herokuapp.com/imagepick/";    
+         
+    xhr.open("POST", url , true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+
+    windowClose();
+
+    }
+
+    let oPick = document.getElementsByClassName("pick");
+
+    for(let i=0;i < oPick.length;i++){
+     oPick[i].addEventListener("click", myFunction);
+    }
+
+
+
+
+  </script>
+
+  </body>
+
+</html>
+
+
+
+
+
+

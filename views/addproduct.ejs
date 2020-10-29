@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <h1>Add Product</h1>
+  <p><a href="../../admin/products">View Products</a></p>
+  
+
+  <form id="form" enctype="multipart/form-data" action="../../admin/saveproduct" method="post">    
+    
+
+    <label for="name">Name</label><br>
+    <input type="text" name="name"/><br>
+
+    <label for="description">Description</label><br>
+    <textarea name="description" rows="4" cols="50"></textarea><br>   
+
+
+    <label for="price">Price</label><br>
+    <input type="text" name="price"/><br>    
+
+    <label for="sku">SKU</label><br>
+    <input type="text" name="sku"/><br> 
+
+    <div class="form-group">
+    <label for="file">Image</label>
+    <input type="file" name="file" />
+    </div> 
+
+  
+
+    
+    <input type="submit" name="submit"/>
+
+  </form>
+
+ 
+  
+  
+  </body>
+
+</html>

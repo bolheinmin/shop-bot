@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sale Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <h1>Order Records</h1>
+
+  <table cellspacing="1" cellpadding="5" border="1">
+    <tr>
+    
+    <th>Reference</th>
+    <th>Customer Name</th>
+    <th>Phone</th>       
+    <th>Address</th>
+    <th>Items</th>  
+    <th>Sub Total</th>
+    <th>Discount</th>
+    <th>Total</th>
+    <th>Payment Type</th>
+    <th>Status</th>
+    <th>Comment</th>
+    <th>Action</th>
+  </tr>
+
+  <% data.forEach(function(order){ %>
+     <tr>
+      
+       <td><%= order.ref %></td>
+       <td><%= order.name %></td>
+       <td><%= order.phone %></td>
+       <td><%= order.address %></td>
+       <td><%= order.items %></td>
+       <td><%= order.sub_total %></td>
+       <td><%= order.discount %></td>
+       <td><%= order.total %></td>
+       <td><%= order.payment_type %></td>
+       <td><%= order.status %></td>
+       <td><%= order.comment %></td> 
+       <td><a href="update_order/<%= order.doc_id %>">Edit</a> | Delete</td> 
+      </tr>
+  <% }); %>
+
+
+  
+
+	</table>
+
+ 
+ 
+
+  </body>
+
+</html>

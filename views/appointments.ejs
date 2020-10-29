@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <h1>Appointments</h1>
+
+ 
+  
+  <table cellspacing="1" cellpadding="5" border="1">
+    <tr>
+    
+    <th>Name</th>
+    <th>Phone</th>
+    <th>EMail</th>
+    <th>Gender</th>
+    <th>Doctor</th>
+    <th>Department</th>
+    <th>Visit</th>    
+    <th>Date</th>
+    <th>Time</th>
+    <th>Message</th>
+    <th>Reference</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+
+
+  <% data.forEach(function(appointment){ %>
+     <tr>
+      
+       <td><%= appointment.name %></td>
+       <td><%= appointment.phone %></td>
+       <td><%= appointment.email %></td>
+       <td><%= appointment.gender %></td>
+       <td><%= appointment.doctor %></td>
+       <td><%= appointment.department %></td>
+       <td><%= appointment.visit %></td>
+       <td><%= appointment.date %></td>
+       <td><%= appointment.time %></td>
+       <td><%= appointment.message %></td>
+       <td><%= appointment.ref %></td>
+       <td><%= appointment.status %></td>
+       <td><a href="updateappointment/<%= appointment.doc_id %>">Edit</a> | Delete</td>
+     </tr>
+  <% }); %>
+
+	</table>
+
+ 
+ 
+
+  </body>
+
+</html>

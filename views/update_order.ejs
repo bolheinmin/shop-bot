@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sale Record</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <h1>Order: <%=data.ref %></h1>
+
+  <form id="form" method="post" action="../update_order">
+  <div>
+    <label for="ref">Reference</label>
+    <input type="text" name="ref" value="<%= data.ref %>">    
+  </div>
+
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" value="<%= data.name %>">    
+  </div>
+
+  <div>
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" value="<%= data.phone %>">    
+  </div>
+
+  <div>
+    <label for="address">Address</label>
+    <input type="text" name="address" value="<%= data.address %>">    
+  </div>
+
+  <div>
+    <label for="items">Items</label>
+    <input type="text" name="items" value="<%= data.address %>">    
+  </div>
+
+  <div>
+    <label for="sub_total">Sub Total</label>
+    <input type="text" name="sub_total" value="<%= data.sub_total %>">    
+  </div>
+
+  <div>
+    <label for="discount">Discount</label>
+    <input type="text" name="discount" value="<%= data.discount %>">    
+  </div>
+
+  <div>
+    <label for="total">Total</label>
+    <input type="text" name="total" value="<%= data.total %>">    
+  </div>
+
+  <div>
+    <label for="payment_type">Payment Type</label>
+    <input type="text" name="payment_type" value="<%= data.payment_type %>">    
+  </div> 
+
+  
+  <div class="form-group">
+    <label for="status">Status:</label>
+  <select name="status" id="status">    
+    <option value="pending" 
+    <%if(data.status == "pending"){%>
+        <%="selected"%>
+    <%}%>
+    >Pending</option>
+    <option value="processing"
+    <%if(data.status == "processing"){%>
+        <%="selected"%>
+    <%}%>
+    >Processing</option>
+    <option value="shipped"
+    <%if(data.status == "shipped"){%>
+        <%="selected"%>
+    <%}%>
+    >Shipped</option>
+    <option value="shipped"
+    <%if(data.status == "completed"){%>
+        <%="selected"%>
+    <%}%>
+    >Completed</option>   
+  </select>   
+  </div>
+
+
+  <div class="form-group">
+    <label for="name">Comment</label>
+    <textarea name="comment" rows="4" cols="50"></textarea>      
+  </div>
+
+  
+  <input type="hidden"  name="doc_id" value="<%= data.doc_id %>">
+  
+  <input type="submit" value="Submit"> 
+  </form>
+ 
+ 
+
+  </body>
+
+</html>

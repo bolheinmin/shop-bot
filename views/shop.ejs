@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    	.product{
+    		width:200px;   
+    		border:1px solid black; 		
+    	}
+    	.product img{
+    		width:100%;
+    		max-width: 200px;
+    	}
+    </style>
+ </head>
+
+  <body>
+  <h1>Shop</h1>
+  <p><a href="../cart">View cart</a> | <a href="../emptycart">Empty cart</a></p>
+
+
+  <% data.forEach(function(product){ %>
+
+  	<div class="product">
+	  	<img src="<%= product.image %>" />
+	  	<h3><%= product.name %></h3>
+	  	<p><%= product.description %><p>
+	    <p>price: <%= product.price %></p>
+
+
+	    <form action="../cart" method="post">
+	    <input type="hidden" name="item_id" value="<%= product.id %>"/>
+	    <input type="hidden" name="item_name" value="<%= product.name %>"/>
+	    <input type="hidden" name="item_price" value="<%= product.price %>"/>
+	    quantity: <input type="number" name="item_qty" min="1" value="1" style="width:50px;"/> 
+	    <input type="submit" name="submit"/>
+	    </form> 	
+  	</div>
+
+     
+  <% }); %>
+  
+  
+
+  
+
+ </body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+</head>
+<body>
+	<h1>Cart</h1>
+	<p><a href="../shop">Shop</a> | <a href="../emptycart">Empty cart</a></p>
+
+	<table cellspacing="1" cellpadding="5" border="1">
+	<tr>
+		
+		<th>Name</th>
+		<th>Qty</th>   
+		<th>Price</th>
+		<th>Total</th>
+	</tr>
+
+	<% cart.forEach(function(item){ %>
+	<tr>
+		
+		<td><%= item.name %></td>
+		<td><%= item.qty %></td>
+		<td><%= item.price %></td>
+		<td><%= item.total %></td>
+		
+	</tr>
+	<% }); %>
+	</table>
+	<p>Sub Total: <%= sub_total %></p>
+	<p>Discount: <%= discount %></p>	
+	<p><strong>Total:</strong> <%= cart_total %></p>	
+	<p>You have <%= points %> point(s)</p>
+
+	<% if (points == 0 || cart_total == 0) { %>
+		<form action="../pointdiscount" method="post">				
+			<input type="submit" name="submit" value="Use Points" disabled/>
+		</form>
+
+	<%} else { %>
+		<form action="../pointdiscount" method="post">		
+			<input type="hidden" name="points" value ="<%= points %>" />
+			<input type="submit" name="submit" value="Use Points"/>
+		</form>
+	
+	<% } %>
+	
+
+	<p><a href="../order">Confirm</a></p>
+
+
+	
+
+	
+
+</body>
+</html>
+
+
