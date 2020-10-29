@@ -46,110 +46,183 @@
 
 </html>
  -->
+<!DOCTYPE html>
+<html lang="en">
 
-<% include partials/header %>
-  <div class="app-title">
-          <div>
-              <h1>
-                  <i class="fas fa-list">
-                  </i>
-                  Add Product
-              </h1>
-          </div>
-          <ul class="app-breadcrumb breadcrumb side">
-              <a class="btn btn-outline-primary" href="">
-                  <i class="fas fa-angle-double-left">
-                  </i>
-              </a>
-          </ul>
-  </div>
-  <div class="row">
-      <div class="col-md-12">
-          <div class="tile">
-              <div class="tile-body">
-                  <form action="../../admin/saveproduct" enctype="multipart/form-data" id="form" method="post">
-                      <!-- Name start -->
-                      <div class="form-group row">
-                          <!--    <label for="name">Name</label><br>
-                      <input type="text" name="name" /><br>
-                      <label for="description">Description</label><br>
-                      <textarea name="description" rows="4" cols="50"></textarea><br>
-                      <label for="price">Price</label><br>
-                      <input type="text" name="price" /><br>
-                      <label for="sku">SKU</label><br>
-                      <input type="text" name="sku" /><br>
-                      <div class="form-group">
-                          <label for="file">Image</label>
-                          <input type="file" name="file" />
-                      </div>
-                      <input type="submit" name="submit" /> -->
-                          <label class="col-sm-2 col-form-label" for="name_id">
-                              Name
-                          </label>
-                          <div class="col-sm-10">
-                              <input class="form-control" id="name_id" name="name" type="text">
-                              </input>
-                          </div>
-                      </div>
-                      <!-- Name End -->
-                      <!-- Price Start -->
-                      <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="price_id">
-                              Price
-                          </label>
-                          <div class="col-sm-10">
-                              <input class="form-control" id="price_id" name="price" type="text">
-                              </input>
-                          </div>
-                      </div>
-                      <!-- Price End -->
-                      <!--Description start-->
-                      <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="description">
-                              Description
-                          </label>
-                          <div class="col-sm-10">
-                              <textarea class="form-control" cols="10" name="description" rows="3">
-                              </textarea>
-                          </div>
-                      </div>
-                      <!--Description end-->
-                      <!-- SKU Start -->
-                      <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="sku_id">
-                              SKU
-                          </label>
-                          <div class="col-sm-10">
-                              <input class="form-control" id="sku_id" name="sku" type="text">
-                              </input>
-                          </div>
-                      </div>
-                      <!-- SKU End -->
-                      <!-- Photo Start -->
-                      <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="photo_id">
-                              Photo
-                          </label>
-                          <div class="col-sm-10">
-                              <input id="photo_id" name="file" type="file">
-                              </input>
-                          </div>
-                      </div>
-                      <!-- Photo End -->
-                      <div class="form-group row">
-                          <div class="col-sm-10">
-                              <button class="btn btn-primary" type="submit">
-                                  <i class="fas fa-save">
-                                  </i>
-                                  Save
-                              </button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
-   </body>
+<head>
+    <meta name="description" content="shopplus">
+    <title>Shopplus</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header">
+        <a class="app-header__logo" href="index.html">
+            Shopplus
+        </a>
+        <!-- Sidebar toggle button-->
+        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#">
+        </a>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar">
+    </div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <img alt="User Image" class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg">
+            <div>
+                <p class="app-sidebar__user-name">
+                    Admin
+                </p>
+                <p class="app-sidebar__user-designation">
+                    admin@gmail.com
+                </p>
+            </div>
+            </img>
+        </div>
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item" href="">
+                    <i class="app-menu__icon fas fa-clipboard-list">
+                    </i>
+                    <span class="app-menu__label">
+                        Order
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="{{route('brand.index')}}">
+                    <i class="app-menu__icon fas fa-tags">
+                    </i>
+                    <span class="app-menu__label">
+                        Product
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1>
+                    <i class="fas fa-list">
+                    </i>
+                    Add Product
+                </h1>
+            </div>
+            <ul class="app-breadcrumb breadcrumb side">
+                <a class="btn btn-outline-primary" href="">
+                    <i class="fas fa-angle-double-left">
+                    </i>
+                </a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <form action="../../admin/saveproduct" enctype="multipart/form-data" id="form" method="post">
+                            <!-- Name start -->
+                            <div class="form-group row">
+                                <!--    <label for="name">Name</label><br>
+                                <input type="text" name="name" /><br>
+                                <label for="description">Description</label><br>
+                                <textarea name="description" rows="4" cols="50"></textarea><br>
+                                <label for="price">Price</label><br>
+                                <input type="text" name="price" /><br>
+                                <label for="sku">SKU</label><br>
+                                <input type="text" name="sku" /><br>
+                                <div class="form-group">
+                                    <label for="file">Image</label>
+                                    <input type="file" name="file" />
+                                </div>
+                                <input type="submit" name="submit" /> -->
+                                <label class="col-sm-2 col-form-label" for="name_id">
+                                    Name
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="name_id" name="name" type="text">
+                                    </input>
+                                </div>
+                            </div>
+                            <!-- Name End -->
+                            <!-- Price Start -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="price_id">
+                                    Price
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="price_id" name="price" type="text">
+                                    </input>
+                                </div>
+                            </div>
+                            <!-- Price End -->
+                            <!--Description start-->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="description">
+                                    Description
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" cols="10" name="description" rows="3">
+                                        </textarea>
+                                </div>
+                            </div>
+                            <!--Description end-->
+                            <!-- SKU Start -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="sku_id">
+                                    SKU
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="sku_id" name="sku" type="text">
+                                    </input>
+                                </div>
+                            </div>
+                            <!-- SKU End -->
+                            <!-- Photo Start -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="photo_id">
+                                    Photo
+                                </label>
+                                <div class="col-sm-10">
+                                    <input id="photo_id" name="file" type="file">
+                                    </input>
+                                </div>
+                            </div>
+                            <!-- Photo End -->
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-save">
+                                        </i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js">
+    </script>
+    <script src="js/popper.min.js">
+    </script>
+    <script src="js/bootstrap.min.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+</body>
+
 </html>
-<% include partials/footer %>
