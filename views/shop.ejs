@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
-    	.product{
-    		width:200px;   
-    		border:1px solid black; 		
-    	}
-    	.product img{
-    		width:100%;
-    		max-width: 200px;
-    	}
+      .product{
+        width:200px;   
+        border:1px solid black;     
+      }
+      .product img{
+        width:100%;
+        max-width: 200px;
+      }
     </style>
  </head>
 
@@ -24,21 +24,21 @@
 
   <% data.forEach(function(product){ %>
 
-  	<div class="product">
-	  	<img src="<%= product.image %>" />
-	  	<h3><%= product.name %></h3>
-	  	<p><%= product.description %><p>
-	    <p>price: <%= product.price %></p>
+    <div class="product">
+      <img src="<%= product.image %>" />
+      <h3><%= product.name %></h3>
+      <p><%= product.description %><p>
+      <p>price: <%= product.price %></p>
 
 
-	    <form action="../cart" method="post">
-	    <input type="hidden" name="item_id" value="<%= product.id %>"/>
-	    <input type="hidden" name="item_name" value="<%= product.name %>"/>
-	    <input type="hidden" name="item_price" value="<%= product.price %>"/>
-	    quantity: <input type="number" name="item_qty" min="1" value="1" style="width:50px;"/> 
-	    <input type="submit" name="submit"/>
-	    </form> 	
-  	</div>
+      <form action="../cart" method="post">
+      <input type="hidden" name="item_id" value="<%= product.id %>"/>
+      <input type="hidden" name="item_name" value="<%= product.name %>"/>
+      <input type="hidden" name="item_price" value="<%= product.price %>"/>
+      quantity: <input type="number" name="item_qty" min="1" value="1" style="width:50px;"/> 
+      <input type="submit" name="submit"/>
+      </form>   
+    </div>
 
      
   <% }); %>
@@ -48,5 +48,48 @@
   
 
  </body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopplus</title>
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+      <h1 class="text-center">Products</h1>
+        <div class="col-sm-12">
+          <% data.forEach(function(product){ %>
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= product.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.name %></h5>
+                        <p class="card-text"><%= product.description %></p>
+                        <p class="card-text">price: <%= product.price %> Ks</p>
+                        <form action="../cart" method="post">
+                          <input type="hidden" name="item_id" value="<%= product.id %>"/>
+                          <input type="hidden" name="item_name" value="<%= product.name %>"/>
+                          <input type="hidden" name="item_price" value="<%= product.price %>"/>
+                          quantity: <input type="number" name="item_qty" min="1" value="1" style="width:50px;"/>
+                          <button class="btn btn-primary" type="submit">
+                            Buy
+                          </button>
+                        </form>   
+                    </div>
+                </div>
+            </div>
+          <% }); %>
+        </div>
+    </div>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
 
 </html>
