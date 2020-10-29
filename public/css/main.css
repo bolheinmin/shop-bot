@@ -15,19 +15,19 @@
 @font-face
 {
   font-family: 'Montserrat_Regular';
-  src: url('../../fonts/Montserrat/Montserrat-Regular.ttf');
+  src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
 }
 
 @font-face
 {
   font-family: 'CrimsonText_Regular';
-  src: url('../../fonts/Crimson_Text/CrimsonText-Regular.ttf');
+  src: url('../fonts/Crimson_Text/CrimsonText-Regular.ttf');
 }
 
 @font-face
 {
   font-family: 'CrimsonText_Bold';
-  src: url('../../fonts/Crimson_Text/CrimsonText-Bold.ttf');
+  src: url('../fonts/Crimson_Text/CrimsonText-Bold.ttf');
 }
 
 :root {
