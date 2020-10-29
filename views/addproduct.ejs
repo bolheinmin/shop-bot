@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -43,5 +43,176 @@
   
   
   </body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Shopplus</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">Shopplus</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name">Admin</p>
+                <p class="app-sidebar__user-designation">admin@gmail.com</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item" href="">
+                    <i class="app-menu__icon fas fa-clipboard-list"></i>
+                    <span class="app-menu__label">
+                        Order
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item" href="{{route('brand.index')}}">
+                    <i class="app-menu__icon fas fa-tags"></i>
+                    <span class="app-menu__label">
+                        Product
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1> <i class="fas fa-list"></i> Add Product </h1>
+            </div>
+            <ul class="app-breadcrumb breadcrumb side">
+                <a href="" class="btn btn-outline-primary">
+                    <i class="fas fa-angle-double-left"></i>
+                </a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <form id="form" enctype="multipart/form-data" action="../../admin/saveproduct" method="post">
+                            <!-- Name start -->
+                            <div class="form-group row">
+                                <!--    <label for="name">Name</label><br>
+                                <input type="text" name="name" /><br>
+                                <label for="description">Description</label><br>
+                                <textarea name="description" rows="4" cols="50"></textarea><br>
+                                <label for="price">Price</label><br>
+                                <input type="text" name="price" /><br>
+                                <label for="sku">SKU</label><br>
+                                <input type="text" name="sku" /><br>
+                                <div class="form-group">
+                                    <label for="file">Image</label>
+                                    <input type="file" name="file" />
+                                </div>
+                                <input type="submit" name="submit" /> -->
+                                <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name_id" name="name">
+                                </div>
+                            </div>
+                            <!-- Name End -->
+                            <!-- Price Start -->
+                            <div class="form-group row">
+                                <label for="price_id" class="col-sm-2 col-form-label"> Price </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="price_id" name="price">
+                                </div>
+                            </div>
+                            <!-- Price End -->
+                            <!--Description start-->
+                            <div class="form-group row">
+                                <label for="description" class="col-sm-2 col-form-label"> Description </label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="description" cols="10" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <!--Description end-->
+                            <!-- SKU Start -->
+                            <div class="form-group row">
+                                <label for="sku_id" class="col-sm-2 col-form-label"> SKU </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="sku_id" name="sku">
+                                </div>
+                            </div>
+                            <!-- SKU End -->
+                            <!-- Photo Start -->
+                            <div class="form-group row">
+                                <label for="photo_id" class="col-sm-2 col-form-label"> Photo </label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="photo_id" name="file">
+                                </div>
+                            </div>
+                            <!-- Photo End -->
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+    if (document.location.hostname == 'pratikborsadiya.in') {
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-72504830-1', 'auto');
+        ga('send', 'pageview');
+    }
+    </script>
+</body>
 
 </html>
