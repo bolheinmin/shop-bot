@@ -1022,7 +1022,7 @@ const shopMenu =(sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Nay Shop",
+            "title": "Shopplus",
             "image_url":"https://img.favpng.com/8/22/6/toy-shop-retail-toys-r-us-clip-art-png-favpng-Q5kvdVUxgvDQT9M9vmsHzByQY.jpg",                       
             "buttons": [              
               {
