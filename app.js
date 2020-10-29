@@ -69,6 +69,7 @@ const upload = multer({
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname+'/views');
+// app.set('views', path.join(__dirname, 'views'));
 
 
 var firebaseConfig = {

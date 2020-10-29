@@ -99,246 +99,141 @@
   </body>
 
 </html> -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta name="description" content="shopplus">
-    <title>Shopplus</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <!-- iconfont CSS -->
-    <link rel="stylesheet" type="text/css" href="/icon/icofont/icofont.min.css">
-    <!-- fontawesome -->
-    <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-</head>
-
-<body class="app sidebar-mini">
-    <!-- Navbar-->
-    <header class="app-header">
-        <a class="app-header__logo" href="index.html">
-            Shopules
-        </a>
-        <!-- Sidebar toggle button-->
-        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar">
-            <i class="icofont-navigation-menu"></i>
-        </a>
-        <!-- Navbar Right Menu-->
-        <ul class="app-nav">
-            <li class="app-search">
-                <input class="app-search__input" type="search" placeholder="Search">
-                <button class="app-search__button">
-                    <i class="icofont-search-2"></i>
-                </button>
-            </li>
-            <!-- User Menu-->
-            <li class="dropdown">
-                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
-                    <i class="icofont-user-alt-3"></i>
-                </a>
-                <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <!-- <li>
-                        <a class="dropdown-item" href="profile.php">
-                            <i class="icofont-ui-user"></i> Profile
-                        </a>
-                    </li> -->
-                    <li>
-                        <a class="dropdown-item" href="signout.php">
-                            <i class="icofont-logout"></i>
-                            Logout
-                        </a>
-                    </li>
-                </ul>
-            </li>
+<%- include('partials/header.ejs') %>
+    <div class="app-title">
+        <div>
+            <h1> <i class="icofont-list"></i>Order:
+                <%=data.ref %>
+            </h1>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+            <a href="../../admin/orders" class="btn btn-outline-primary">
+                <i class="icofont-double-left"></i>
+            </a>
         </ul>
-    </header>
-    <!-- Sidebar menu-->
-    <div class="app-sidebar__overlay" data-toggle="sidebar">
     </div>
-    <aside class="app-sidebar">
-        <div class="app-sidebar__user">
-            <img alt="User Image" class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg">
-            <div>
-                <p class="app-sidebar__user-name">
-                    Admin
-                </p>
-                <p class="app-sidebar__user-designation">
-                    admin@gmail.com
-                </p>
-            </div>
-            </img>
-        </div>
-        <ul class="app-menu">
-            <li>
-                <a class="app-menu__item" href="../../admin/orders">
-                    <i class="app-menu__icon icofont-prestashop"></i>
-                    <span class="app-menu__label">
-                        Orders
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a class="app-menu__item" href="../../admin/products">
-                    <i class="app-menu__icon icofont-package"></i>
-                    <span class="app-menu__label">
-                        Products
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </aside>
-    <main class="app-content">
-        <div class="app-title">
-            <div>
-                <h1> <i class="icofont-list"></i>Order:
-                    <%=data.ref %>
-                </h1>
-            </div>
-            <ul class="app-breadcrumb breadcrumb side">
-                <a href="../../admin/orders" class="btn btn-outline-primary">
-                    <i class="icofont-double-left"></i>
-                </a>
-            </ul>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="tile">
-                    <div class="tile-body">
-                        <form id="form" method="post" action="../update_order">
-                            <!--Reference No start-->
-                            <div class="form-group row">
-                                <label for="ref_id" class="col-sm-2 col-form-label"> Reference No </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="ref_id" name="ref" value="<%= data.ref %>" readonly>
-                                </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <form id="form" method="post" action="../update_order">
+                        <!--Reference No start-->
+                        <div class="form-group row">
+                            <label for="ref_id" class="col-sm-2 col-form-label"> Reference No </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ref_id" name="ref" value="<%= data.ref %>" readonly>
                             </div>
-                            <!--Reference No end-->
-                            <!--Name start-->
-                            <div class="form-group row">
-                                <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name_id" name="name" value="<%= data.name %>" readonly>
-                                </div>
+                        </div>
+                        <!--Reference No end-->
+                        <!--Name start-->
+                        <div class="form-group row">
+                            <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name_id" name="name" value="<%= data.name %>" readonly>
                             </div>
-                            <!--Name end-->
-                            <!--Phone start-->
-                            <div class="form-group row">
-                                <label for="phone_id" class="col-sm-2 col-form-label"> Phone </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="phone_id" name="phone" value="<%= data.phone %>" readonly>
-                                </div>
+                        </div>
+                        <!--Name end-->
+                        <!--Phone start-->
+                        <div class="form-group row">
+                            <label for="phone_id" class="col-sm-2 col-form-label"> Phone </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="phone_id" name="phone" value="<%= data.phone %>" readonly>
                             </div>
-                            <!--Phone end-->
-                            <!--Address start-->
-                            <div class="form-group row">
-                                <label for="address_id" class="col-sm-2 col-form-label"> Address </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="address_id" name="address" value="<%= data.address %>" readonly>
-                                </div>
+                        </div>
+                        <!--Phone end-->
+                        <!--Address start-->
+                        <div class="form-group row">
+                            <label for="address_id" class="col-sm-2 col-form-label"> Address </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="address_id" name="address" value="<%= data.address %>" readonly>
                             </div>
-                            <!--Address end-->
-                            <!--Items start-->
-                            <div class="form-group row">
-                                <label for="items_id" class="col-sm-2 col-form-label"> Items </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="items_id" name="items" value="<%= data.items %>" readonly>
-                                </div>
+                        </div>
+                        <!--Address end-->
+                        <!--Items start-->
+                        <div class="form-group row">
+                            <label for="items_id" class="col-sm-2 col-form-label"> Items </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="items_id" name="items" value="<%= data.items %>" readonly>
                             </div>
-                            <!--Items end-->
-                            <!--Sub Total start-->
-                            <div class="form-group row">
-                                <label for="subtotal_id" class="col-sm-2 col-form-label"> Sub Total </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="subtotal_id" name="sub_total" value="<%= data.sub_total %>" readonly>
-                                </div>
+                        </div>
+                        <!--Items end-->
+                        <!--Sub Total start-->
+                        <div class="form-group row">
+                            <label for="subtotal_id" class="col-sm-2 col-form-label"> Sub Total </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="subtotal_id" name="sub_total" value="<%= data.sub_total %>" readonly>
                             </div>
-                            <!--Sub Total end-->
-                            <!--Discount start-->
-                            <div class="form-group row">
-                                <label for="discount_id" class="col-sm-2 col-form-label"> Discount </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="discount_id" name="discount" value="<%= data.discount %>" readonly>
-                                </div>
+                        </div>
+                        <!--Sub Total end-->
+                        <!--Discount start-->
+                        <div class="form-group row">
+                            <label for="discount_id" class="col-sm-2 col-form-label"> Discount </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="discount_id" name="discount" value="<%= data.discount %>" readonly>
                             </div>
-                            <!--Discount end-->
-                            <!--Total start-->
-                            <div class="form-group row">
-                                <label for="total_id" class="col-sm-2 col-form-label"> Total </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="total_id" name="total" value="<%= data.total %>" readonly>
-                                </div>
+                        </div>
+                        <!--Discount end-->
+                        <!--Total start-->
+                        <div class="form-group row">
+                            <label for="total_id" class="col-sm-2 col-form-label"> Total </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="total_id" name="total" value="<%= data.total %>" readonly>
                             </div>
-                            <!--Total end-->
-                            <!--Payment Type start-->
-                            <div class="form-group row">
-                                <label for="payment_id" class="col-sm-2 col-form-label"> Payment Type </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="payment_id" name="payment_type" value="<%= data.payment_type %>" readonly>
-                                </div>
+                        </div>
+                        <!--Total end-->
+                        <!--Payment Type start-->
+                        <div class="form-group row">
+                            <label for="payment_id" class="col-sm-2 col-form-label"> Payment Type </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="payment_id" name="payment_type" value="<%= data.payment_type %>" readonly>
                             </div>
-                            <!--Payment Type end-->
-                            <!--Status start-->
-                            <div class="form-group row">
-                                <label for="status_id" class="col-sm-2 col-form-label"> Status </label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="status" id="status_id">
-                                        <option value="pending" <%if(data.status=="pending" ){%>
-                                            <%="selected"%>
-                                            <%}%>
-                                            >Pending</option>
-                                        <option value="processing" <%if(data.status=="processing" ){%>
-                                            <%="selected"%>
-                                            <%}%>
-                                            >Processing</option>
-                                        <option value="shipped" <%if(data.status=="shipped" ){%>
-                                            <%="selected"%>
-                                            <%}%>
-                                            >Shipped</option>
-                                        <option value="shipped" <%if(data.status=="completed" ){%>
-                                            <%="selected"%>
-                                            <%}%>
-                                            >Completed</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <!--Payment Type end-->
+                        <!--Status start-->
+                        <div class="form-group row">
+                            <label for="status_id" class="col-sm-2 col-form-label"> Status </label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="status" id="status_id">
+                                    <option value="pending" <%if(data.status=="pending" ){%>
+                                        <%="selected"%>
+                                        <%}%>
+                                        >Pending</option>
+                                    <option value="processing" <%if(data.status=="processing" ){%>
+                                        <%="selected"%>
+                                        <%}%>
+                                        >Processing</option>
+                                    <option value="shipped" <%if(data.status=="shipped" ){%>
+                                        <%="selected"%>
+                                        <%}%>
+                                        >Shipped</option>
+                                    <option value="shipped" <%if(data.status=="completed" ){%>
+                                        <%="selected"%>
+                                        <%}%>
+                                        >Completed</option>
+                                </select>
                             </div>
-                            <!--Status end-->
-                            <!--Comment start-->
-                            <div class="form-group row">
-                                <label for="comment" class="col-sm-2 col-form-label"> Comment </label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" name="comment" id="" cols="10" rows="3"></textarea>
-                                </div>
+                        </div>
+                        <!--Status end-->
+                        <!--Comment start-->
+                        <div class="form-group row">
+                            <label for="comment" class="col-sm-2 col-form-label"> Comment </label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="comment" id="" cols="10" rows="3"></textarea>
                             </div>
-                            <!--Comment end-->
-                            <input type="hidden"  name="doc_id" value="<%= data.doc_id %>">
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="icofont-save"></i>
-                                        Save
-                                    </button>
-                                </div>
+                        </div>
+                        <!--Comment end-->
+                        <input type="hidden"  name="doc_id" value="<%= data.doc_id %>">
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="icofont-save"></i>
+                                    Save
+                                </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </main>
-    <!-- Essential javascripts for application to work-->
-    <script src="/js/jquery-3.3.1.min.js">
-    </script>
-    <script src="/js/popper.min.js">
-    </script>
-    <script src="/js/bootstrap.min.js">
-    </script>
-    <script src="/js/main.js">
-    </script>
-    <!-- The javascript plugin to display page loading on top-->
-    <script src="/js/plugins/pace.min.js"></script>
-</body>
-
-</html>
+    </div>
+<%- include('partials/footer.ejs') %>
